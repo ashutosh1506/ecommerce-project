@@ -8,10 +8,10 @@ const Footer = () => {
         <div>
           <img src={assets.logo} alt="" className="mb-5 w-32" />
           <p className="w-full text-justify md:w-2/3 text-gray-600">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-            vel fuga facere illo eaque repellat assumenda esse quidem suscipit
-            rem ratione cupiditate incidunt alias, tempora praesentium aut,
-            repudiandae eos iure.
+            At FOREVER, we create more than just clothes; we design timeless
+            pieces that last. Our collections are built on a foundation of
+            quality craftsmanship and enduring style, made to be cherished in
+            your wardrobe for years to come.
           </p>
         </div>
 

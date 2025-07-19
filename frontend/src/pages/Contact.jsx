@@ -25,7 +25,7 @@ const Contact = () => {
             Tel: (415) 555-0132 <br /> Email: admin@gmail.com
           </p>
           <p className="font-semibold text-xl text-gray-600">
-            Carrers at Forever
+            Carrers at Stello
           </p>
           <p className="text-gray-500">
             Learn more about our teams and job opening.

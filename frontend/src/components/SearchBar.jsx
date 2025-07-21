@@ -27,13 +27,17 @@ const SearchBar = () => {
           type="text"
           placeholder="Search"
         />
-        <img src={assets.search_icon} alt="" className="w-4" />
+        <img
+          src={assets.search_icon}
+          alt=""
+          className="w-4 cursor-pointer transition-transform duration-300 hover:scale-110"
+        />
       </div>
       <img
         onClick={() => setShowSearch(false)}
         src={assets.cross_icon}
         alt=""
-        className="inline w-3 cursor-pointer"
+        className="inline w-3 cursor-pointer transition-transform duration-300 hover:scale-110"
       />
     </div>
   ) : null;

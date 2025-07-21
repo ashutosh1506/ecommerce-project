@@ -41,6 +41,7 @@ const ShopContextProvider = (props) => {
           { itemId, size },
           { headers: { token } }
         );
+        toast.success("Added to Cart");
       } catch (error) {
         console.log(error);
         toast.error(error.message);

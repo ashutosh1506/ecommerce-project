@@ -22,6 +22,7 @@ const login = () => {
         if (response.data.success) {
           setToken(response.data.token);
           localStorage.setItem("token", response.data.token);
+          toast.success("Welcome " + name);
         } else {
           toast.error(response.data.message);
         }
@@ -33,6 +34,7 @@ const login = () => {
         if (response.data.success) {
           setToken(response.data.token);
           localStorage.setItem("token", response.data.token);
+          toast.success("Welcome " + name);
         } else {
           toast.error(response.data.message);
         }

@@ -3,6 +3,7 @@ import { assets } from "../assets/assets";
 import { Link, NavLink } from "react-router-dom";
 import { useState } from "react";
 import { ShopContext } from "../context/ShopContext";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -20,6 +21,7 @@ const Navbar = () => {
     setToken("");
     setCartItems({});
     navigate("/login");
+    toast.success("Logout Successful");
   };
 
   return (
@@ -29,19 +31,31 @@ const Navbar = () => {
       </Link>
       {/* Links Section  */}
       <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
-        <NavLink to="/" className="flex flex-col items-center gap-1">
+        <NavLink
+          to="/"
+          className="flex flex-col items-center gap-1 hover:text-gray-500"
+        >
           <p>HOME</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
-        <NavLink to="/collection" className="flex flex-col items-center gap-1">
+        <NavLink
+          to="/collection"
+          className="flex flex-col items-center gap-1 hover:text-gray-500"
+        >
           <p>COLLECTION</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
-        <NavLink to="/about" className="flex flex-col items-center gap-1">
+        <NavLink
+          to="/about"
+          className="flex flex-col items-center gap-1 hover:text-gray-500"
+        >
           <p>ABOUT</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden " />
         </NavLink>
-        <NavLink to="/contact" className="flex flex-col items-center gap-1">
+        <NavLink
+          to="/contact"
+          className="flex flex-col items-center gap-1 hover:text-gray-500"
+        >
           <p>CONTACT</p>
           <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
         </NavLink>
@@ -53,14 +67,14 @@ const Navbar = () => {
           onClick={() => setShowSearch(true)}
           src={assets.search_icon}
           alt=""
-          className="w-5 cursor-pointer"
+          className="w-5 cursor-pointer  transition-transform duration-300 hover:scale-110"
         />
         <div className="group relative">
           <img
             onClick={() => (token ? null : navigate("/login"))}
             src={assets.profile_icon}
             alt=""
-            className="w-5 cursor-pointer"
+            className="w-5 cursor-pointer  transition-transform duration-300 hover:scale-110"
           />
           {/* Dropdown menu */}
           {token && (
@@ -80,8 +94,15 @@ const Navbar = () => {
             </div>
           )}
         </div>
-        <Link to="/cart" className="relative">
-          <img src={assets.cart_icon} alt="" className="w-5 min-w-5" />
+        <Link
+          to="/cart"
+          className="relative transition-transform duration-300 hover:scale-110"
+        >
+          <img
+            src={assets.cart_icon}
+            alt=""
+            className="w-5 min-w-5 cursor-pointer "
+          />
           <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
             {getCartCount()}
           </p>
@@ -89,7 +110,7 @@ const Navbar = () => {
         <img
           onClick={() => setVisible(true)}
           src={assets.menu_icon}
-          className="w-5 cursor-pointer sm:hidden"
+          className="w-5 cursor-pointer sm:hidden transition-transform duration-300 hover:scale-110 "
           alt=""
         />
       </div>

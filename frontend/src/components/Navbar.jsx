@@ -1,12 +1,13 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { assets } from "../assets/assets";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { ShopContext } from "../context/ShopContext";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
+  const [showSearchIcon, setShowSearchIcon] = useState(false);
   const {
     setShowSearch,
     getCartCount,
@@ -15,7 +16,14 @@ const Navbar = () => {
     setToken,
     setCartItems,
   } = useContext(ShopContext);
-
+  const location = useLocation();
+  useEffect(() => {
+    if (location.pathname.includes("collection")) {
+      setShowSearchIcon(true);
+    } else {
+      setShowSearchIcon(false);
+    }
+  }, [location]);
   const logout = () => {
     localStorage.removeItem("token");
     setToken("");
@@ -63,12 +71,14 @@ const Navbar = () => {
 
       {/* Right section  */}
       <div className="flex items-center gap-6">
-        <img
-          onClick={() => setShowSearch(true)}
-          src={assets.search_icon}
-          alt=""
-          className="w-5 cursor-pointer  transition-transform duration-300 hover:scale-110"
-        />
+        {showSearchIcon && (
+          <img
+            onClick={() => setShowSearch(true)}
+            src={assets.search_icon}
+            alt=""
+            className="w-5 cursor-pointer  transition-transform duration-300 hover:scale-110"
+          />
+        )}
         <div className="group relative">
           <img
             onClick={() => (token ? null : navigate("/login"))}
